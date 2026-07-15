@@ -50,7 +50,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ── PAGE HEADER ── */}
-      <section className="pt-36 pb-0 md:pt-48 bg-bark overflow-hidden">
+      <section className="pt-24 pb-0 md:pt-32 bg-bark overflow-hidden">
         <div className="container-wide">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end pb-0">
             <div>
@@ -147,7 +147,7 @@ export default function AboutPage() {
       {/* ── BUILDING TYPES ── */}
       <section className="section-pad bg-off-white">
         <div className="container-wide">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-10">
             <div>
               <p className="label-text text-stone mb-6">Building types</p>
               <h2 className="font-serif text-display-md text-bark [text-wrap:balance]">
@@ -163,32 +163,24 @@ export default function AboutPage() {
           </div>
 
           <div className="border-t border-sand/25">
-            {buildingTypes.map((type, i) => {
-              const count = projects.filter((p) => p.category === type).length;
-              return (
-                <Link
-                  key={type}
-                  href="/projects"
-                  className="group flex items-center justify-between border-b border-sand/25 py-6 md:py-8 hover:bg-cream/40 transition-colors duration-300 -mx-6 md:-mx-8 px-6 md:px-8"
-                >
-                  <div className="flex items-center gap-8">
-                    <p className="label-text text-sand text-[0.65rem] shrink-0 w-8">
-                      {String(i + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="font-serif text-2xl md:text-3xl text-bark leading-tight">{type}</h3>
-                  </div>
-                  <div className="flex items-center gap-6 shrink-0">
-                    <p className="label-text text-stone">
-                      {count} {count === 1 ? "project" : "projects"}
-                    </p>
-                    <ArrowRight
-                      size={16}
-                      className="text-terracotta opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                    />
-                  </div>
-                </Link>
-              );
-            })}
+            {buildingTypes.map((type, i) => (
+              <Link
+                key={type}
+                href="/projects"
+                className="group flex items-center justify-between border-b border-sand/25 py-4 md:py-6 hover:bg-cream/40 transition-colors duration-300 -mx-6 md:-mx-8 px-6 md:px-8"
+              >
+                <div className="flex items-center gap-8">
+                  <p className="label-text text-sand text-[0.65rem] shrink-0 w-8">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="font-serif text-xl md:text-2xl text-bark leading-tight">{type}</h3>
+                </div>
+                <ArrowRight
+                  size={16}
+                  className="text-terracotta opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0"
+                />
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -196,7 +188,7 @@ export default function AboutPage() {
       {/* ── PROCESS TIMELINE ── */}
       <section className="section-pad bg-cream">
         <div className="container-wide">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div>
               <p className="label-text text-stone mb-6">The process</p>
               <h2 className="font-serif text-display-md text-bark">
@@ -209,7 +201,7 @@ export default function AboutPage() {
               {timeline.map((item, i) => (
                 <div
                   key={item.year}
-                  className={`flex gap-8 py-8 ${i < timeline.length - 1 ? "border-b border-linen" : ""}`}
+                  className={`flex gap-8 py-5 ${i < timeline.length - 1 ? "border-b border-linen" : ""}`}
                 >
                   <p className="font-serif text-xl text-stone shrink-0 w-28">{item.year}</p>
                   <p className="text-bark font-light leading-relaxed">{item.event}</p>
@@ -221,9 +213,9 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 bg-terracotta">
+      <section className="py-12 bg-terracotta">
         <div className="container-wide flex flex-col md:flex-row items-center justify-between gap-8">
-          <h2 className="font-serif text-4xl md:text-5xl text-off-white max-w-md [text-wrap:balance]">
+          <h2 className="font-serif text-2xl md:text-3xl text-off-white max-w-md [text-wrap:balance]">
             Have a site to design for?
           </h2>
           <div className="flex flex-col gap-4">

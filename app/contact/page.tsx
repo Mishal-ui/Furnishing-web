@@ -31,7 +31,7 @@ export default function ContactPage() {
   return (
     <>
       {/* ── PAGE HEADER ── */}
-      <section className="pt-36 pb-20 md:pt-48 md:pb-28 bg-linen">
+      <section className="pt-24 pb-12 md:pt-32 md:pb-16 bg-linen">
         <div className="container-wide">
           <p className="label-text text-stone mb-6">Get in touch</p>
           <h1 className="font-serif text-display-lg text-bark max-w-xl [text-wrap:balance]">
@@ -45,7 +45,7 @@ export default function ContactPage() {
       {/* ── MAIN ── */}
       <section className="section-pad bg-off-white">
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14">
 
             {/* Left — info */}
             <div className="lg:col-span-4 space-y-12">
@@ -84,7 +84,7 @@ export default function ContactPage() {
               {submitted ? (
                 <div className="flex flex-col items-start justify-center min-h-[400px]">
                   <div className="w-12 h-px bg-terracotta mb-8" />
-                  <h2 className="font-serif text-4xl md:text-5xl text-bark mb-6">
+                  <h2 className="font-serif text-2xl md:text-3xl text-bark mb-6">
                     Message received.
                   </h2>
                   <p className="text-stone font-light text-lg leading-relaxed max-w-md">
@@ -184,7 +184,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── STUDIO VISIT BAND ── */}
-      <section className="py-20 bg-bark">
+      <section className="py-12 bg-bark">
         <div className="container-wide">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
             {[

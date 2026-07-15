@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import AnimatedFadeIn from "@/components/AnimatedFadeIn";
 import FloatingLeaves from "@/components/FloatingLeaves";
@@ -60,7 +60,7 @@ export default function HomePage() {
         </div>
 
         {/* Falling leaves */}
-        <FloatingLeaves count={26} className="z-[2]" />
+        <FloatingLeaves count={10} className="z-[2]" />
 
         {/* Trees */}
         <AnimatedTree
@@ -110,7 +110,7 @@ export default function HomePage() {
             </AnimatedHeading>
             <AnimatedFadeIn delay={2.3}>
               <p className="text-white/50 text-lg font-light leading-relaxed max-w-sm mb-12">
-                {projects.length} projects across NSW — residential dwellings, medical facilities, and industrial developments. Each one designed for its land, its use, and the people it holds.
+                Residential dwellings, medical facilities, and industrial developments across NSW. Each one designed for its land, its use, and the people it holds.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/projects" className="btn-primary group">
@@ -137,13 +137,13 @@ export default function HomePage() {
         <div className="container-wide">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-off-white">
             {[
-              { num: projects.length, label: "Projects" },
               { num: 9, label: "Building types" },
               { num: "NSW", label: "Region" },
+              { num: "DA", label: "Approval ready" },
               { num: "2026", label: "Studio" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <p className="font-serif text-3xl md:text-4xl leading-none mb-2">{s.num}</p>
+                <p className="font-serif text-2xl md:text-3xl leading-none mb-2">{s.num}</p>
                 <p className="label-text text-off-white/70 text-[0.6rem]">{s.label}</p>
               </div>
             ))}
@@ -154,7 +154,7 @@ export default function HomePage() {
       {/* ── FEATURED PROJECTS ── */}
       <section className="section-pad bg-cream">
         <div className="container-wide">
-          <div className="flex items-end justify-between mb-14">
+          <div className="flex items-end justify-between mb-8">
             <div>
               <AnimatedFadeIn>
                 <p className="label-text text-stone mb-4">Selected work</p>
@@ -169,7 +169,7 @@ export default function HomePage() {
                 href="/projects"
                 className="hidden md:flex items-center gap-2 label-text text-terracotta hover:gap-4 transition-all"
               >
-                All {projects.length} projects <ArrowRight size={12} />
+                All projects <ArrowRight size={12} />
               </Link>
             </AnimatedFadeIn>
           </div>
@@ -190,12 +190,12 @@ export default function HomePage() {
                     </span>
                   </div>
 
-                  <div className="relative aspect-[4/5] w-full overflow-hidden ring-1 ring-transparent group-hover:ring-sand/50 transition-all duration-500 bg-linen">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden ring-1 ring-transparent group-hover:ring-sand/50 transition-all duration-500 bg-linen">
                     <Image
                       src={item.images[0]}
                       alt={item.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-bark/0 group-hover:bg-bark/15 transition-colors duration-500" />
@@ -207,7 +207,10 @@ export default function HomePage() {
                   </div>
 
                   <div className="pt-6 mt-auto">
-                    <p className="label-text text-stone mb-2 truncate">{item.address}</p>
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <MapPin size={11} className="text-terracotta shrink-0" />
+                      <p className="label-text text-stone truncate">{item.address}</p>
+                    </div>
                     <h3 className="font-serif text-xl md:text-2xl text-bark leading-tight [text-wrap:balance]">
                       {item.title}
                     </h3>
@@ -219,7 +222,7 @@ export default function HomePage() {
 
           <div className="mt-10 md:hidden">
             <Link href="/projects" className="btn-outline w-full justify-center">
-              All {projects.length} projects <ArrowRight size={14} />
+              All projects <ArrowRight size={14} />
             </Link>
           </div>
         </div>
@@ -228,7 +231,7 @@ export default function HomePage() {
       {/* ── CATEGORY SHOWCASE ── */}
       <section className="section-pad bg-off-white">
         <div className="container-wide">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 mb-10">
             <div className="md:col-span-5">
               <AnimatedFadeIn>
                 <p className="label-text text-stone mb-6">What we design</p>
@@ -276,8 +279,8 @@ export default function HomePage() {
       </section>
 
       {/* ── STATEMENT ── */}
-      <section className="py-20 md:py-32 bg-linen border-y border-sand/40 relative overflow-hidden">
-        <FloatingLeaves count={10} color="text-terracotta" className="opacity-70" />
+      <section className="py-10 md:py-14 bg-linen border-y border-sand/40 relative overflow-hidden">
+        <FloatingLeaves count={5} color="text-terracotta" className="opacity-70" />
 
         <div
           className="absolute right-0 top-0 h-full w-64 md:w-80 pointer-events-none opacity-[0.22] text-stone overflow-hidden"
@@ -344,7 +347,7 @@ export default function HomePage() {
               <div className="space-y-0">
                 {values.map((v, i) => (
                   <AnimatedFadeIn key={v.num} delay={i * 0.1}>
-                    <div className="flex gap-8 border-t border-sand/20 py-8">
+                    <div className="flex gap-8 border-t border-sand/20 py-5">
                       <p className="label-text text-sand pt-1 shrink-0">{v.num}</p>
                       <div>
                         <h3 className="font-serif text-2xl text-bark mb-3">{v.title}</h3>
@@ -368,7 +371,7 @@ export default function HomePage() {
 
       {/* ── CTA CLOSER ── */}
       <section className="section-pad bg-bark relative overflow-hidden">
-        <FloatingLeaves count={14} color="text-terracotta" className="opacity-60" />
+        <FloatingLeaves count={7} color="text-terracotta" className="opacity-60" />
 
         <div
           className="absolute bottom-0 right-0 w-56 md:w-80 h-64 md:h-96 pointer-events-none opacity-[0.18] text-sand overflow-hidden"
@@ -383,19 +386,19 @@ export default function HomePage() {
         </div>
         <div className="container-wide text-center">
           <AnimatedFadeIn>
-            <div className="flex items-center justify-center gap-6 mb-8">
+            <div className="flex items-center justify-center gap-6 mb-5">
               <div className="w-10 h-px bg-sand/20" />
               <p className="label-text text-sand/40">Start a project</p>
               <div className="w-10 h-px bg-sand/20" />
             </div>
           </AnimatedFadeIn>
-          <AnimatedHeading className="font-serif text-display-lg text-off-white mb-10 [text-wrap:balance]">
+          <AnimatedHeading className="font-serif text-display-lg text-off-white mb-6 [text-wrap:balance]">
             Every site<br />
             <em className="text-terracotta">has</em> a right<br />
             answer.
           </AnimatedHeading>
           <AnimatedFadeIn delay={0.2}>
-            <p className="text-white/40 text-lg font-light max-w-md mx-auto mb-12 leading-relaxed">
+            <p className="text-white/40 text-lg font-light max-w-md mx-auto mb-7 leading-relaxed">
               Send us the block and the brief. We&apos;ll come back with a direction.
             </p>
             <Link href="/contact" className="btn-primary">
