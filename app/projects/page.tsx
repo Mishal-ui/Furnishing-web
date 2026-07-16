@@ -41,7 +41,7 @@ export default function ProjectsPage() {
               <p className="label-text text-stone mb-6">What we build</p>
               <h1 className="font-serif text-display-lg text-bark">Projects</h1>
             </div>
-            <p className="text-stone font-light text-lg max-w-md leading-relaxed pb-2">
+            <p className="text-stone font-light text-xl max-w-md leading-8 pb-2">
               Across New South Wales — residential dwellings, medical facilities, and industrial developments, each designed for its site and use.
             </p>
           </div>
@@ -142,7 +142,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 bg-bark">
+      <section className="py-24 bg-bark">
         <div className="container-wide flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <p className="label-text text-sand/40 mb-4">Talk to the studio</p>
